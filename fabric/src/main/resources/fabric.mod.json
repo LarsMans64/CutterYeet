@@ -15,6 +15,9 @@
   "entrypoints": {
     "main": [
       "nl.teamdiopside.cutteryeet.fabric.CutterYeetFabric"
+    ],
+    "modmenu": [
+      "nl.teamdiopside.cutteryeet.config.ModMenu"
     ]
   },
   "mixins": [
@@ -23,6 +26,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.15.7",
-    "minecraft": ">=1.20.1"
+    "minecraft": ">=1.20.1",
+    "yet_another_config_lib_v3": "*"
   }
 }

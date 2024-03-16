@@ -5,6 +5,7 @@ import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
+import nl.teamdiopside.cutteryeet.config.Config;
 
 public class CutterYeet
 {
@@ -14,5 +15,6 @@ public class CutterYeet
 
 	public static void init() {
 		SOUND_EVENTS.register();
+		Config.HANDLER.load();
 	}
 }

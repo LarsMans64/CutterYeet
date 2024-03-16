@@ -64,3 +64,9 @@ description='''
    versionRange="[1.20.1,1.21)"
    ordering="NONE"
    side="BOTH"
+[[dependencies.cutteryeet]]
+   modId = "yet_another_config_lib_v3"
+   mandatory = true
+   versionRange = "[3.0.2+1.20,)"
+   ordering = "NONE"
+   side = "CLIENT"

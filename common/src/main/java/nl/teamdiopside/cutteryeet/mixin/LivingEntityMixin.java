@@ -13,6 +13,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import nl.teamdiopside.cutteryeet.CutterYeet;
+import nl.teamdiopside.cutteryeet.config.Config;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -36,7 +37,7 @@ public abstract class LivingEntityMixin extends Entity implements Attackable {
             this.setOnGround(false);
 
             Direction direction = blockState.get(Properties.HORIZONTAL_FACING);
-            Vec3d pushVelocity = Vec3d.of(direction.rotateCounterclockwise(Direction.Axis.Y).getVector()).add(0, 0.3, 0).multiply(3);
+            Vec3d pushVelocity = Vec3d.of(direction.rotateCounterclockwise(Direction.Axis.Y).getVector()).add(0, 0.3, 0).multiply(Config.yeetStrength);
             this.setVelocity(pushVelocity);
 
             this.playSound(CutterYeet.CUT_SOUND.get(), 1f, 1f);
