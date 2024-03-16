@@ -16,6 +16,8 @@ import nl.teamdiopside.cutteryeet.CutterYeet;
 
 public class Config {
 
+    public static int yeetStrengthDefault = 3;
+
     public static Screen makeScreen(Screen parent) {
         return YetAnotherConfigLib.createBuilder()
                 .title(Text.translatable("cutteryeet.config.title"))
@@ -24,7 +26,7 @@ public class Config {
                         .option(Option.<Integer>createBuilder()
                                 .name(Text.translatable("cutteryeet.config.yeetStrength.title"))
                                 .description(OptionDescription.of(Text.translatable("cutteryeet.config.yeetStrength.description")))
-                                .binding(3, () -> Config.yeetStrength, newVal -> Config.yeetStrength = newVal)
+                                .binding(yeetStrengthDefault, () -> Config.yeetStrength, newVal -> Config.yeetStrength = newVal)
                                 .controller(opt -> IntegerSliderControllerBuilder.create(opt)
                                         .range(1, 10)
                                         .step(1)
@@ -44,5 +46,5 @@ public class Config {
             .build();
 
     @SerialEntry
-    public static int yeetStrength = 3;
+    public static int yeetStrength = yeetStrengthDefault;
 }

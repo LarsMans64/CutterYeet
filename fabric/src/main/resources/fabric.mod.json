@@ -4,9 +4,16 @@
   "version": "${version}",
 
   "name": "CutterYeet",
-  "description": "A silly mod that makes stonecutters more interesting",
-  "authors": [],
-  "contact": {},
+  "description": "A silly mod that makes stonecutters more interesting.",
+  "authors": [
+    "LarsMans",
+    "curryducker"
+  ],
+  "contact": {
+    "homepage": "https://teamdiopside.nl/projects/cutteryeet",
+    "issues": "https://github.com/TeamDiopside/CutterYeet/issues",
+    "sources": "https://github.com/TeamDiopside/CutterYeet"
+  },
 
   "license": "All Rights Reserved",
   "icon": "icon.png",
@@ -28,5 +35,12 @@
     "fabricloader": ">=0.15.7",
     "minecraft": ">=1.20.1",
     "yet_another_config_lib_v3": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://teamdiopside.nl/discord"
+      }
+    }
   }
 }
