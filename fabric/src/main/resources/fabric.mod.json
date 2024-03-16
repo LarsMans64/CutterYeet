@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "cutteryeet",
+  "version": "${version}",
+
+  "name": "CutterYeet",
+  "description": "A silly mod that makes stonecutters more interesting",
+  "authors": [],
+  "contact": {},
+
+  "license": "All Rights Reserved",
+  "icon": "icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "nl.teamdiopside.cutteryeet.fabric.CutterYeetFabric"
+    ]
+  },
+  "mixins": [
+    "cutteryeet.mixins.json",
+    "cutteryeet-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.7",
+    "minecraft": ">=1.20.1"
+  }
+}
