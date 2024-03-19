@@ -7,6 +7,7 @@ import net.minecraft.block.StonecutterBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.vehicle.BoatEntity;
@@ -21,16 +22,22 @@ import net.minecraft.world.entity.EntityLike;
 import nl.teamdiopside.cutteryeet.CutterYeet;
 import nl.teamdiopside.cutteryeet.config.Config;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Entity.class)
 public abstract class EntityMixin implements Nameable, EntityLike, CommandOutput {
 
     @Inject(method = "tick", at = @At("HEAD"))
     public void tickMovement(CallbackInfo ci) {
+        if (!Config.enabled) {
+            return;
+        }
+
         Entity self = (Entity) (Object) this;
         if ((self instanceof PlayerEntity player && player.getAbilities().flying) || !(self instanceof LivingEntity || self instanceof BoatEntity || self instanceof ItemEntity)) {
             return;
@@ -51,13 +58,12 @@ public abstract class EntityMixin implements Nameable, EntityLike, CommandOutput
 
     @Unique
     public boolean cutterYeet$isStonecutter(BlockState blockState) {
-        boolean isInsideModdedCutter = false;
         if (Platform.isModLoaded("corail_woodcutter")) {
             Block block = Registries.BLOCK.get(new Identifier("corail_woodcutter", "oak_woodcutter"));
             if (blockState.getBlock().getClass() == block.getClass()) {
-                isInsideModdedCutter = true;
+                return true;
             }
         }
-        return blockState.getBlock() instanceof StonecutterBlock || isInsideModdedCutter;
+        return blockState.getBlock() instanceof StonecutterBlock;
     }
 }
