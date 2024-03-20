@@ -7,9 +7,7 @@ import net.minecraft.block.StonecutterBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.server.command.CommandOutput;
@@ -27,10 +25,11 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Entity.class)
 public abstract class EntityMixin implements Nameable, EntityLike, CommandOutput {
+
+    @Shadow public float fallDistance;
 
     @Inject(method = "tick", at = @At("HEAD"))
     public void tickMovement(CallbackInfo ci) {
@@ -53,6 +52,8 @@ public abstract class EntityMixin implements Nameable, EntityLike, CommandOutput
             self.setVelocity(pushVelocity);
 
             self.playSound(CutterYeet.CUT_SOUND.get(), 1f, 1f);
+
+            this.fallDistance = 0;
         }
     }
 
