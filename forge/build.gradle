@@ -28,6 +28,8 @@ dependencies {
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+
+    modImplementation("curse.maven:corail-woodcutter-331983:5036277")
 }
 
 processResources {

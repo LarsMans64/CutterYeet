@@ -1,5 +1,6 @@
 {
   "cutteryeet.config.title": "CutterYeet config",
+  "cutteryeet.config.enabled.title": "Mod ingeschakeld",
   "cutteryeet.config.yeetStrength.title": "Yeet sterkte",
   "cutteryeet.config.yeetStrength.description": "De sterkte die een steenzaag zal gebruiken om te yeeten!",
   "modmenu.descriptionTranslation.cutteryeet": "Een onnozele mod die steenzagen interessanter maakt."

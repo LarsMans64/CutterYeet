@@ -20,6 +20,7 @@ import net.minecraft.world.entity.EntityLike;
 import nl.teamdiopside.cutteryeet.CutterYeet;
 import nl.teamdiopside.cutteryeet.config.Config;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -28,8 +29,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Entity.class)
 public abstract class EntityMixin implements Nameable, EntityLike, CommandOutput {
 
+    @Shadow public float fallDistance;
+
     @Inject(method = "tick", at = @At("HEAD"))
     public void tickMovement(CallbackInfo ci) {
+        if (!Config.enabled) {
+            return;
+        }
+
         Entity self = (Entity) (Object) this;
         if ((self instanceof PlayerEntity player && player.getAbilities().flying) || !(self instanceof LivingEntity || self instanceof BoatEntity || self instanceof ItemEntity)) {
             return;
@@ -45,18 +52,19 @@ public abstract class EntityMixin implements Nameable, EntityLike, CommandOutput
             self.setVelocity(pushVelocity);
 
             self.playSound(CutterYeet.CUT_SOUND.get(), 1f, 1f);
+
+            this.fallDistance = 0;
         }
     }
 
     @Unique
     public boolean cutterYeet$isStonecutter(BlockState blockState) {
-        boolean isInsideModdedCutter = false;
         if (Platform.isModLoaded("corail_woodcutter")) {
             Block block = Registries.BLOCK.get(new Identifier("corail_woodcutter", "oak_woodcutter"));
             if (blockState.getBlock().getClass() == block.getClass()) {
-                isInsideModdedCutter = true;
+                return true;
             }
         }
-        return blockState.getBlock() instanceof StonecutterBlock || isInsideModdedCutter;
+        return blockState.getBlock() instanceof StonecutterBlock;
     }
 }
