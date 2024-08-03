@@ -16,7 +16,7 @@
   },
 
   "license": "All Rights Reserved",
-  "icon": "icon.png",
+  "icon": "modicon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -28,7 +28,7 @@
     ]
   },
   "mixins": [
-    "cutteryeet.mixins.json",
+    "cutteryeet-fabric.mixins.json",
     "cutteryeet-common.mixins.json"
   ],
   "depends": {
