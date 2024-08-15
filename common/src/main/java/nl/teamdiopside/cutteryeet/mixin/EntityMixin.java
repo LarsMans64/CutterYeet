@@ -9,6 +9,7 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.BoatEntity;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
 import net.minecraft.server.command.CommandOutput;
 import net.minecraft.state.property.Properties;
@@ -17,8 +18,8 @@ import net.minecraft.util.Nameable;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.entity.EntityLike;
+import nl.teamdiopside.cutteryeet.Config;
 import nl.teamdiopside.cutteryeet.CutterYeet;
-import nl.teamdiopside.cutteryeet.config.Config;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -30,6 +31,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class EntityMixin implements Nameable, EntityLike, CommandOutput {
 
     @Shadow public float fallDistance;
+
+    @Shadow public abstract void readNbt(NbtCompound nbt);
 
     @Inject(method = "tick", at = @At("HEAD"))
     public void tickMovement(CallbackInfo ci) {
@@ -60,7 +63,7 @@ public abstract class EntityMixin implements Nameable, EntityLike, CommandOutput
     @Unique
     public boolean cutterYeet$isStonecutter(BlockState blockState) {
         if (Platform.isModLoaded("corail_woodcutter")) {
-            Block block = Registries.BLOCK.get(new Identifier("corail_woodcutter", "oak_woodcutter"));
+            Block block = Registries.BLOCK.get(Identifier.of("corail_woodcutter", "oak_woodcutter"));
             if (blockState.getBlock().getClass() == block.getClass()) {
                 return true;
             }

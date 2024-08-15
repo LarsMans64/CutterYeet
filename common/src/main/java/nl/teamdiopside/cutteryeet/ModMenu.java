@@ -1,4 +1,4 @@
-package nl.teamdiopside.cutteryeet.config;
+package nl.teamdiopside.cutteryeet;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;

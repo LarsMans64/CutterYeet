@@ -1,6 +1,5 @@
-package nl.teamdiopside.cutteryeet.config;
+package nl.teamdiopside.cutteryeet;
 
-import dev.architectury.platform.Platform;
 import dev.isxander.yacl3.api.ConfigCategory;
 import dev.isxander.yacl3.api.Option;
 import dev.isxander.yacl3.api.OptionDescription;
@@ -9,15 +8,12 @@ import dev.isxander.yacl3.api.controller.BooleanControllerBuilder;
 import dev.isxander.yacl3.api.controller.IntegerSliderControllerBuilder;
 import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
-import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
-import nl.teamdiopside.cutteryeet.CutterYeet;
 
 public class Config {
 
-    public static int yeetStrengthDefault = 3;
+    public static int yeetStrengthDefault = 2;
 
     public static Screen makeScreen(Screen parent) {
         return YetAnotherConfigLib.createBuilder()
@@ -44,12 +40,7 @@ public class Config {
                 .generateScreen(parent);
     }
 
-    public static ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
-            .id(new Identifier(CutterYeet.MOD_ID, "config"))
-            .serializer(config -> GsonConfigSerializerBuilder.create(config)
-                    .setPath(Platform.getConfigFolder().resolve("cutteryeet.json"))
-                    .build())
-            .build();
+    public static ConfigClassHandler<Config> HANDLER = ConfigHandler.getConfigHandler();
 
     @SerialEntry
     public static boolean enabled = true;

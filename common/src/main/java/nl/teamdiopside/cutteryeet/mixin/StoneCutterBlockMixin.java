@@ -6,7 +6,7 @@ import net.minecraft.block.StonecutterBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import nl.teamdiopside.cutteryeet.config.Config;
+import nl.teamdiopside.cutteryeet.Config;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(StonecutterBlock.class)

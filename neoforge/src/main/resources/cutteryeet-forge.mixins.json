@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "nl.teamdiopside.cutteryeet.forge.mixin",
+  "package": "nl.teamdiopside.cutteryeet.neoforge.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "WoodCutterBlockMixin"

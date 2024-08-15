@@ -43,6 +43,7 @@ dependencies {
     shadowBundle project(path: ':common', configuration: 'transformProductionNeoForge')
 
     modImplementation("curse.maven:corail-woodcutter-331983:5036277")
+    modImplementation("dev.isxander:yet-another-config-lib:${project.yacl_version}-neoforge")
 }
 
 processResources {

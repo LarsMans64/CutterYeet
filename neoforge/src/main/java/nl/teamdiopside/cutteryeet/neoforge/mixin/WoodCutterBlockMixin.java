@@ -1,4 +1,4 @@
-package nl.teamdiopside.cutteryeet.forge.mixin;
+package nl.teamdiopside.cutteryeet.neoforge.mixin;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FluidDrainable;
@@ -7,7 +7,7 @@ import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import nl.teamdiopside.cutteryeet.config.Config;
+import nl.teamdiopside.cutteryeet.Config;
 import org.spongepowered.asm.mixin.Mixin;
 import ovh.corail.woodcutter.block.WoodcutterBlock;
 

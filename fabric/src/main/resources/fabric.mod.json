@@ -24,7 +24,7 @@
       "nl.teamdiopside.cutteryeet.fabric.CutterYeetFabric"
     ],
     "modmenu": [
-      "nl.teamdiopside.cutteryeet.config.ModMenu"
+      "nl.teamdiopside.cutteryeet.ModMenu"
     ]
   },
   "mixins": [

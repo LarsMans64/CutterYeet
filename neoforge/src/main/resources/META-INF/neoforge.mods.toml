@@ -1,0 +1,48 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+issueTrackerURL = "https://github.com/TeamDiopside/CutterYeet/issues"
+license = "All Rights Reserved"
+
+[[mods]]
+modId = "cutteryeet"
+version = "${version}"
+displayName = "CutterYeet"
+authors = "LarsMans, curryducker"
+description = '''
+A silly mod that makes stonecutters more interesting.
+'''
+logoFile = "modicon.png"
+
+[[dependencies.cutteryeet]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.cutteryeet]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.cutteryeet]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.2,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.cutteryeet]]
+modId = "yet_another_config_lib_v3"
+mandatory = true
+versionRange = "[3.5.0+1.21,)"
+ordering = "NONE"
+side = "CLIENT"
+
+[[mixins]]
+config = "cutteryeet-common.mixins.json"
+
+[[mixins]]
+config = "cutteryeet-forge.mixins.json"
