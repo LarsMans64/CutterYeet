@@ -17,7 +17,7 @@ import nl.teamdiopside.cutteryeet.CutterYeet;
 
 public class Config {
 
-    public static int yeetStrengthDefault = 3;
+    public static int yeetStrengthDefault = 2;
 
     public static Screen makeScreen(Screen parent) {
         return YetAnotherConfigLib.createBuilder()
