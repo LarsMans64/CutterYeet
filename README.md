@@ -12,7 +12,7 @@
 
 This mod gives stonecutters the ability to yeet entities that step on them! The strength of the yeet is configurable.
 
-![](https://teamdiopside.nl/assets/cutteryeet/showcase.gif)
+<iframe width="1236" height="695" src="https://www.youtube.com/embed/3sgDJC7eZv0" title="CutterYeet Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Built-in compatibility:
 - Corail Woodcutter

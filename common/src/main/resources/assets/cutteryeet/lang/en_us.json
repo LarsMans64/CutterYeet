@@ -2,6 +2,6 @@
   "cutteryeet.config.title": "CutterYeet Config",
   "cutteryeet.config.enabled.title": "Mod Enabled",
   "cutteryeet.config.yeetStrength.title": "Yeet Strength",
-  "cutteryeet.config.yeetStrength.description": "The strength a Stonecutter will use to Yeet!",
+  "cutteryeet.config.yeetStrength.description": "The strength a Stonecutter will use to Yeet! This is a server-side setting.",
   "modmenu.descriptionTranslation.cutteryeet": "A silly mod that makes stonecutters more interesting."
 }
